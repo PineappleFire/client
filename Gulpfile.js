@@ -10,6 +10,13 @@ const ROOT = 'app/'
 const SITES = ROOT + 'sites/'
 const DEST = 'dest/'
 
+// get the path to any node_modules the project will use
+gulp.task('node_modules', function() {
+  return gulp.src(
+    ['node_modules/vue/dist/vue.js']
+  ).pipe(plugin.flatten())
+  .pipe(gulp.dest(DEST))
+})
 
 // get all html and js files
 gulp.task('html-js', function() {
@@ -24,6 +31,12 @@ gulp.task('css', function() {
     .pipe(plugin.flatten())
     .pipe(gulp.dest(DEST))
 })
+// move all svg's
+gulp.task('svg', function() {
+  return gulp.src(ROOT + 'resources/icons/*')
+    .pipe(plugin.flatten())
+    .pipe(gulp.dest(DEST))
+})
 
 // if any of the html, styl or js files change, run the tasks
 gulp.task('watch', function() {
@@ -35,12 +48,13 @@ gulp.task('watch', function() {
 gulp.task('serve', function() {
     browserSync.init({
         server: { baseDir: DEST },
-        browser: "google chrome"
+        browser: "firefox"
     })
     gulp.watch(DEST + '*').on('change', browserSync.reload)
 })
 
-gulp.task('build', gulp.parallel('html-js', 'css'))
+gulp.task('build', gulp.parallel('html-js', 'css', 'node_modules', 'svg'))
+
 gulp.task('dev', gulp.series(
   'build',
   gulp.parallel('watch', 'serve')
