@@ -6,12 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Home</title>
   <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/solid.css" integrity="sha384-VGP9aw4WtGH/uPAOseYxZ+Vz/vaTb1ehm1bwx92Fm8dTrE+3boLfF1SpAtB1z7HW" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/fontawesome.css" integrity="sha384-1rquJLNOM3ijoueaaeS5m+McXPJCGdr5HcA03/VHXxcp2kX2sUrQDmFc3jR5i/C7" crossorigin="anonymous">
+  <script src="vue.js" defer></script>
+  <script src="icons.js" defer></script>
 </head>
 <body>
+  <div id="app">
   <nav>
     <div>
       <h2>MacApps</h2>
-      <input type="text" placeholder="Search">
+      <!-- <input type="text" placeholder="Search"> -->
     </div>
     <div>
       <a href="">Sign In</a>
@@ -19,5 +24,32 @@
       <a href="">Cart</a>
     </div>
   </nav>
+  <div id="filter">
+    <h2>Filter</h2>
+    <input type="text" placeholder="App Name" v-model.lazy='appName'>
+    <input type="number" placeholder="Icon Number" v-model="iconNumber" min="1" max="200">
+    <input type="text" placeholder="Author" v-model.lazy='author'>
+  </div>
+  <div id="content">
+    <div v-for='(icon, index) in icons' class="box">
+      <h3>{{icon.title}}</h3>
+      <img v-bind:src="icon.img" alt="">
+      <div class="clickRow">
+        <p>{{icon.price}}</p>
+        <i class="fas fa-cart-plus fa-lg"></i>
+        <div>
+          <button>
+            <i class="fas fa-arrow-circle-up fa-2x"></i>
+          </button>
+          <p>{{roundNumber(icon.votes)}}</p>
+          <button>
+            <i class="fas fa-arrow-circle-down fa-2x"></i>
+          </button>
+        </div>
+      </div>
+      <p class="author">{{icon.author}}</p>
+    </div>
+  </div>
+  </div>
 </body>
 </html>

@@ -4,9 +4,17 @@ body, html
   margin 0
 
 NavHeight = 50px
+
+#app
+  display grid
+  grid-template "nav nav" "filter content"
+  grid-template-columns 200px 1fr
+  grid-template-rows NavHeight 1fr
+  height 100vh
+
 nav
   height NavHeight
-  width 100vw
+  grid-area nav
   background Base
   display flex
   justify-content space-between
@@ -33,3 +41,65 @@ nav
       color white
       font-size 12pt
       padding 5px
+
+#filter
+  grid-area filter
+  h2
+    width 100%
+    text-align center
+    font-family sans-serif
+  input
+    display block
+    margin 10px auto
+    padding 5px
+    width 80%
+
+#content
+  grid-area content
+  justify-content center
+  background #F1F1F1
+  display flex
+  flex-wrap wrap
+  padding 10px
+  overflow scroll
+
+.box
+  background white
+  font-family sans-serif
+  width 200px
+  max-height 220px
+  margin 20px
+  h3
+    text-align center
+  &>img
+    width 100px
+    display block
+    margin auto
+  .clickRow
+    display flex
+    align-items center
+    justify-content space-between
+    width 96%
+    margin auto
+    &>div
+      display flex
+      align-items center
+      color rgba(0,0,0,0.5)
+      p
+        padding 0 2px
+        margin 0
+  button
+    background transparent
+    border none
+    cursor pointer
+    &:focus
+      outline none
+  i
+    fill rgba(0,0,0,0.5)
+  .author
+    width 100%
+    text-align center
+    padding 10px 0
+    margin 0
+    background #2F2F2F
+    color white
