@@ -31,8 +31,8 @@ gulp.task('css', function() {
     .pipe(plugin.flatten())
     .pipe(gulp.dest(DEST))
 })
-// move all svg's
-gulp.task('svg', function() {
+// move all icons
+gulp.task('icons', function() {
   return gulp.src(ROOT + 'resources/icons/*')
     .pipe(plugin.flatten())
     .pipe(gulp.dest(DEST))
@@ -53,7 +53,7 @@ gulp.task('serve', function() {
     gulp.watch(DEST + '*').on('change', browserSync.reload)
 })
 
-gulp.task('build', gulp.parallel('html-js', 'css', 'node_modules', 'svg'))
+gulp.task('build', gulp.parallel('html-js', 'css', 'node_modules', 'icons'))
 
 gulp.task('dev', gulp.series(
   'build',

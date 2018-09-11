@@ -1,4 +1,3 @@
-const iconSrc = 'http://people.oregonstate.edu/~chriconn/macApps/icons/'
 const unitPrice = 1.2
 const priceScale = 0.83
 
@@ -13,67 +12,67 @@ String.prototype.insert = function (index, string) {
 const iconsSrc = [
   {
     id: '1',
-    img: iconSrc + 'word.png',
+    img: './word.png',
     title: 'Word',
     number: 1,
     author: 'Connor Christensen'
   }, {
     id: '2',
-    img: iconSrc + '1password.png',
+    img: './1password.png',
     title: '1Password',
     number: 1,
     author: 'Connor Christensen'
   }, {
     id: '3',
-    img: iconSrc + 'excel.png',
+    img: './excel.png',
     title: 'Excel',
     number: 1,
     author: 'Connor Christensen'
   }, {
     id: '4',
-    img: iconSrc + 'office.png',
+    img: './office.png',
     title: 'Office',
     number: 5,
     author: 'Connor Christensen'
   }, {
     id: '5',
-    img: iconSrc + 'one-note.png',
+    img: './one-note.png',
     title: 'One Note',
     number: 1,
     author: 'Connor Christensen'
   }, {
     id: '6',
-    img: iconSrc + 'outlook.png',
+    img: './outlook.png',
     title: 'Outlook',
     number: 1,
     author: 'Connor Christensen'
   }, {
     id: '7',
-    img: iconSrc + 'photoshop-square.png',
+    img: './photoshop-square.png',
     title: 'Photoshop',
     number: 1,
     author: 'Connor Christensen'
   }, {
     id: '8',
-    img: iconSrc + 'photoshop-circle.png',
+    img: './photoshop-circle.png',
     title: 'Photoshop',
     number: 1,
     author: 'Connor Christensen'
   }, {
     id: '9',
-    img: iconSrc + 'photoshop-squrcle.png',
+    img: './photoshop-squrcle.png',
     title: 'Photoshop',
     number: 1,
     author: 'Connor Christensen'
   }, {
     id: '10',
-    img: iconSrc + 'power-point.png',
+    img: './powerpoint.png',
     title: 'Powerpoint',
     number: 1,
     author: 'Connor Christensen'
   }, {
     id: '11',
-    img: iconSrc + 'vlc.png',
+    img: './vlc.png',
     title: 'VLC',
     number: 1,
     author: 'Connor Christensen'
